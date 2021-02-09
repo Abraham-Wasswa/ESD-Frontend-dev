@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './error/not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
-import { from } from 'rxjs';
 import { InternalServerComponent } from './error/internal-server/internal-server.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { InternalServerComponent } from './error/internal-server/internal-server
       { path: '**', redirectTo: '/404', pathMatch: 'full'}
     ])
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

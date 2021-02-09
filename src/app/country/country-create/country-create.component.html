@@ -73,7 +73,7 @@
             </div>
           </div>
         
-        <!--date-->
+        <!--date
         <div class="form-group row">
           <label for="date" class="control-label col-md-2">Date: </label>
           <div class="col-md-5">
@@ -84,7 +84,7 @@
             <em *ngIf="validateControl('date') && hasError('date', 'required')">Date is required</em>
           </div>
         </div>
-   
+      -->
         <br><br>
    
         <div class="form-group row">
@@ -101,9 +101,10 @@
    
     <app-success-modal [modalHeaderText]="'Success message'" 
     [modalBodyText]="'Action completed successfully'" [okButtonText]="'OK'" 
-    (redirectOnOK)="redirectToOwnerList()"></app-success-modal>
+    (redirectOnOK)="redirectToCountryList()"></app-success-modal>
    
+    
     <app-error-modal [modalHeaderText]="'Error message'" 
     [modalBodyText]="errorMessage" [okButtonText]="'OK'"></app-error-modal>
-   
+  
   </div>

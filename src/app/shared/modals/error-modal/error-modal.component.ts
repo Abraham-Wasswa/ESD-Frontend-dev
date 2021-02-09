@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ErrorModalComponent implements OnInit {
 
   @Input()
-  public modalHearderText!: string;
+  public modalHeaderText!: string;
   @Input()
   public modalBodyText!: string;
   @Input()

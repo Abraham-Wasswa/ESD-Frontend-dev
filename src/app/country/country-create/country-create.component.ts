@@ -41,17 +41,17 @@ export class CountryCreateComponent implements OnInit {
     return false;
   }
 
-  public executeDatePicker = (event: any) => {
+  public executeDatePicker = (event: Date) => {
     this.countryForm.patchValue({ 'dateOfBirth': event });
   }
 
-  public createCountry = (ownerFormValue: any) => {
+  public createCountry = (CountryFormValue: any) => {
     if (this.countryForm.valid) {
-      this.executeOwnerCreation(ownerFormValue);
+      this.executeCountryCreation(CountryFormValue);
     }
   }
 
-  private executeOwnerCreation = (countryFormValue: { countryName: string; state: string; county: string; city: string; cases: any; deaths: any; date: string | number | Date; }) => {
+  private executeCountryCreation = (countryFormValue: { countryName: string; state: string; county: string; city: string; cases: string; deaths: string; date: string | null; }) => {
     const country: CountryForCreation = {
       countryName: countryFormValue.countryName,
       state: countryFormValue.state,
@@ -59,10 +59,10 @@ export class CountryCreateComponent implements OnInit {
       city: countryFormValue.city,
       cases: countryFormValue.cases,
       deaths: countryFormValue.deaths,
-      date: this.datePipe.transform(countryFormValue.date, 'yyyy-MM-dd'),
+      date:  this.datePipe.transform(countryFormValue.date, 'yyyy-MM-dd'),
     }
 
-    const apiUrl = 'api/country';
+    const apiUrl = 'api/Country';
     this.repository.create(apiUrl, country)
       .subscribe(res => {
         $('#successModal');
@@ -74,7 +74,7 @@ export class CountryCreateComponent implements OnInit {
     )
   }
 
-  public redirectToOwnerList(){
+  public redirectToCountryList(){
     this.router.navigate(['/country/list']);
   }
 
