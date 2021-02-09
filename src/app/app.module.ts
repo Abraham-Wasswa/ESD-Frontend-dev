@@ -17,7 +17,7 @@ import { InternalServerComponent } from './error/internal-server/internal-server
     HomeComponent,
     MenuComponent,
     NotFoundComponent,
-    InternalServerComponent
+    InternalServerComponent,
   ],
   imports: [
     BrowserModule,

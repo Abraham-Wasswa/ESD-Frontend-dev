@@ -6,9 +6,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./success-modal.component.css']
 })
 export class SuccessModalComponent implements OnInit {
-  @Input() public modalHeaderText: string | undefined;
-  @Input() public modalBodyText: string | undefined;
-  @Input() public okButtonText: string | undefined;
+  @Input()
+  public modalHeaderText!: string;
+  @Input()
+  public modalBodyText!: string;
+  @Input()
+  public okButtonText!: string;
   @Output() public redirectOnOK = new EventEmitter();
 
   constructor() { }

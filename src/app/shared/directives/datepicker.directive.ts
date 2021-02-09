@@ -4,7 +4,8 @@ import { Directive, ElementRef, EventEmitter, OnInit, Output } from '@angular/co
   selector: '[appDatepicker]'
 })
 export class DatepickerDirective implements OnInit {
-  @Output() public change = new EventEmitter();
+  @Output() 
+  public change = new EventEmitter();
 
   constructor(private elementRef: ElementRef) { }
 

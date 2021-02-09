@@ -1,0 +1,109 @@
+<div class="container-fluid">
+    <form [formGroup]="countryForm" autocomplete="off" novalidate (ngSubmit)="createCountry(countryForm.value)">
+      <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+        <!--Country-->
+        <div class="form-group row">
+          <label for="countryName" class="control-label col-md-2">Country: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="countryName" id="countryName" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('countryName') && hasError('countryName', 'required')">Country is required</em>
+            <em *ngIf="validateControl('countryName') && hasError('countryName', 'maxlength')">Maximum allowed length is 60 characters.</em>
+          </div>
+        </div>
+
+        <!--State-->
+        <div class="form-group row">
+            <label for="state" class="control-label col-md-2">State: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="state" id="state" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('state') && hasError('state', 'required')">State is required</em>
+              <em *ngIf="validateControl('State') && hasError('state', 'maxlength')">Maximum allowed length is 60 characters.</em>
+            </div>
+          </div>
+
+          <!--County-->
+          <div class="form-group row">
+            <label for="county" class="control-label col-md-2">County: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="county" id="county" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('county') && hasError('county', 'required')">Country is required</em>
+              <em *ngIf="validateControl('county') && hasError('county', 'maxlength')">Maximum allowed length is 60 characters.</em>
+            </div>
+          </div>
+
+          <!--City-->
+          <div class="form-group row">
+            <label for="city" class="control-label col-md-2">City: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="city" id="countryName" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('city') && hasError('city', 'required')">City is required</em>
+              <em *ngIf="validateControl('city') && hasError('city', 'maxlength')">Maximum allowed length is 60 characters.</em>
+            </div>
+          </div>
+
+          <!--Cases-->
+          <div class="form-group row">
+            <label for="cases" class="control-label col-md-2">No. of Cases: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="cases" id="cases" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('cases') && hasError('cases', 'required')">Please enter number of Cases</em>
+              <em *ngIf="validateControl('cases') && hasError('cases', 'maxlength')">Maximum allowed length is 60 characters.</em>
+            </div>
+          </div>
+
+          <!--Deaths-->
+          <div class="form-group row">
+            <label for="deaths" class="control-label col-md-2">No. of Deaths: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="deaths" id="deaths" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('deaths') && hasError('deaths', 'required')">Enter in Death number</em>
+              <em *ngIf="validateControl('deaths') && hasError('deaths', 'maxlength')">Maximum allowed length is 60 characters.</em>
+            </div>
+          </div>
+        
+        <!--date-->
+        <div class="form-group row">
+          <label for="date" class="control-label col-md-2">Date: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="date" id="date" class="form-control" appDatepicker 
+                  (change)="executeDatePicker($event)" readonly/>
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('date') && hasError('date', 'required')">Date is required</em>
+          </div>
+        </div>
+   
+        <br><br>
+   
+        <div class="form-group row">
+            <div class="offset-5 col-md-1">
+                <button type="submit" class="btn btn-info" [disabled]="!countryForm.valid">Save</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger" (click)="redirectToCountryList()">Cancel</button>
+            </div>
+        </div>
+        
+      </div>
+    </form>
+   
+    <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" [okButtonText]="'OK'" 
+    (redirectOnOK)="redirectToOwnerList()"></app-success-modal>
+   
+    <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" [okButtonText]="'OK'"></app-error-modal>
+   
+  </div>

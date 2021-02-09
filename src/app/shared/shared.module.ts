@@ -10,7 +10,9 @@ import { DatepickerDirective } from './directives/datepicker.directive';
   declarations: [ErrorModalComponent, SuccessModalComponent, DatepickerDirective],
   imports: [
     CommonModule,
-    ErrorModalComponent
+    ErrorModalComponent,
+    SuccessModalComponent,
+    DatepickerDirective
   ]
 })
 export class SharedModule { }
