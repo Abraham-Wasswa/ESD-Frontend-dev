@@ -1,0 +1,40 @@
+<div class="row"> 
+    <div class="offset-10 col-md-2">
+      <a href="#">Add Country</a>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Country</th>
+              <th>State</th>
+              <th>County</th>
+              <th>City</th>
+              <th>Cases</th>
+              <th>Deaths</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let country of countries">
+              <td>{{country.countryName}}</td>
+              <td>{{country.state}}</td>
+              <td>{{country.county}}</td>
+              <td>{{country.city}}</td>
+              <td>{{country.cases}}</td>
+              <td>{{country.deaths}}</td>              
+              <td>{{country.date}}</td>
+              
+              <td><button type="button" id="details" class="btn btn-primary">Details</button></td>
+              <td><button type="button" id="update" class="btn btn-success">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
